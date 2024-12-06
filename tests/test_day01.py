@@ -1,4 +1,4 @@
-from adventofcode.day1 import calculate_similarity_score, calculate_total_distance
+from adventofcode.day01 import calculate_similarity_score, calculate_total_distance
 
 
 def test_total_distance() -> None:

@@ -1,6 +1,6 @@
 import pytest
 
-from adventofcode.day2 import (
+from adventofcode.day02 import (
     check_dampened_report_safety,
     check_report_safety,
     count_safe_reports,

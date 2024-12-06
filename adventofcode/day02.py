@@ -1,5 +1,5 @@
 def main():
-    with open("./data/data_day2.txt", "r", encoding="utf-8") as file:
+    with open("./data/data_day02.txt", "r", encoding="utf-8") as file:
         data = file.read().splitlines()
     reports = parse_data(data)
 

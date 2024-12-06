@@ -1,5 +1,5 @@
 def main():
-    with open("./data/data_day1.txt", "r", encoding="utf-8") as file:
+    with open("./data/data_day01.txt", "r", encoding="utf-8") as file:
         data = file.read().splitlines()
     ids1, ids2 = parse_data(data)
     print("Total distance: ", calculate_total_distance(ids1, ids2))
