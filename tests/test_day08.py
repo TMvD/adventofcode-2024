@@ -3,6 +3,7 @@ import pytest
 from adventofcode.day08 import (
     Coordinates,
     count_antinodes,
+    count_harmonic_antinodes,
     fetch_antenna_coordinates,
     fetch_antinode_coordinates,
     validate_coordinates,
@@ -81,6 +82,10 @@ def test_fetch_antenna_coordinates(map: list[str]):
 )
 def test_fetch_antinode_coordinates(map, antenna_coordinates, expected):
     assert fetch_antinode_coordinates(map, antenna_coordinates) == expected
+
+
+def test_count_harmonic_antinodes(map):
+    assert count_harmonic_antinodes(map) == 34
 
 
 @pytest.mark.parametrize(

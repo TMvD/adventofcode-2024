@@ -1,6 +1,5 @@
 from collections import defaultdict
 from itertools import combinations
-from pprint import pprint
 
 
 class Coordinates:
@@ -37,6 +36,9 @@ def main():
     total_antinodes = count_antinodes(map)
     print("Unique antinode locations:", total_antinodes)
 
+    total_harmonic_antinodes = count_harmonic_antinodes(map)
+    print("Unique harmonic antinode locations", total_harmonic_antinodes)
+
 
 def count_antinodes(map: list[str]):
     antenna_coordinates = fetch_antenna_coordinates(map)
@@ -44,7 +46,6 @@ def count_antinodes(map: list[str]):
 
     for coordinates in antenna_coordinates.values():
         antinode_coordinates |= fetch_antinode_coordinates(map, coordinates)
-    pprint(antinode_coordinates)
     return len(antinode_coordinates)
 
 
@@ -73,6 +74,31 @@ def fetch_antinode_coordinates(map: list[str], antenna_coordinates: list[Coordin
 
 def validate_coordinates(map: list[str], coordinates):
     return (0 <= coordinates.x < len(map[0])) and (0 <= coordinates.y < len(map))
+
+
+def count_harmonic_antinodes(map):
+    antenna_coordinates = fetch_antenna_coordinates(map)
+    antinode_coordinates = set()
+
+    for coordinates in antenna_coordinates.values():
+        antinode_coordinates |= fetch_harmonic_antinode_coordinates(map, coordinates)
+    return len(antinode_coordinates)
+
+
+def fetch_harmonic_antinode_coordinates(
+    map: list[str], antenna_coordinates: list[Coordinates]
+):
+    coordinate_combos = combinations(antenna_coordinates, 2)
+    antinode_coordinates = set()
+    for a, b in coordinate_combos:
+        distance = a - b
+        while validate_coordinates(map, a):
+            antinode_coordinates.add(a)
+            a += distance
+        while validate_coordinates(map, b):
+            antinode_coordinates.add(b)
+            b -= distance
+    return antinode_coordinates
 
 
 main()
