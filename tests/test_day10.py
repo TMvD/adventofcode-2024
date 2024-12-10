@@ -1,8 +1,9 @@
 import pytest
 
 from adventofcode.day10 import (
-    breadth_first_search,
+    get_trailhead_score,
     parse_map,
+    sum_trailhead_ratings,
     sum_trailhead_scores,
     validate_coordinates,
 )
@@ -80,9 +81,67 @@ def test_sum_trailhead_scores(map, expected):
         ),
     ],
 )
-def test_breadth_first_search(map, start_coordinates, expected):
+def test_get_trailhead_score(map, start_coordinates, expected):
     map = parse_map(map)
-    assert breadth_first_search(map, start_coordinates) == expected
+    assert get_trailhead_score(map, start_coordinates) == expected
+
+
+@pytest.mark.parametrize(
+    "map, expected",
+    [
+        (
+            [
+                ".....0.",
+                "..4321.",
+                "..5..2.",
+                "..6543.",
+                "..7..4.",
+                "..8765.",
+                "..9....",
+            ],
+            3,
+        ),
+        (
+            [
+                "..90..9",
+                "...1.98",
+                "...2..7",
+                "6543456",
+                "765.987",
+                "876....",
+                "987....",
+            ],
+            13,
+        ),
+        (
+            [
+                "012345",
+                "123456",
+                "234567",
+                "345678",
+                "4.6789",
+                "56789.",
+            ],
+            227,
+        ),
+        (
+            [
+                "89010123",
+                "78121874",
+                "87430965",
+                "96549874",
+                "45678903",
+                "32019012",
+                "01329801",
+                "10456732",
+            ],
+            81,
+        ),
+    ],
+)
+def test_sum_trailhead_ratings(map, expected):
+    map = parse_map(map)
+    assert sum_trailhead_ratings(map)
 
 
 @pytest.mark.parametrize(
