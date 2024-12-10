@@ -43,7 +43,7 @@ def traverse_map(map: list[str], coordinates: tuple[int, int, str]):
         xdx = x + dx
         ydy = y + dy
 
-        if xdx < 0 or xdx > max_x or ydy < 0 or ydy > max_y:
+        if not (0 <= xdx <= max_x) or not (0 <= ydy <= max_y):
             return route
 
         if map[ydy][xdx] in "#O":
