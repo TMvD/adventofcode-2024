@@ -117,4 +117,5 @@ def check_x_mas(grid: list[str], y: int, x: int, y_len: int, x_len: int):
     return False
 
 
-main()
+if __name__ == "__main__":
+    main()

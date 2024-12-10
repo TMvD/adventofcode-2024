@@ -84,4 +84,5 @@ def obstruct_coordinate(map: list[str], coordinates: tuple[int, int]):
     return m
 
 
-main()
+if __name__ == "__main__":
+    main()

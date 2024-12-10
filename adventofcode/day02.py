@@ -45,4 +45,5 @@ def count_safe_reports(report_results: list[bool]) -> int:
     return report_results.count(True)
 
 
-main()
+if __name__ == "__main__":
+    main()

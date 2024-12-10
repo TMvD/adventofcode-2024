@@ -46,4 +46,5 @@ def validate_calibration(test_value: int, operands: list[int], operators: list[s
     return False
 
 
-main()
+if __name__ == "__main__":
+    main()

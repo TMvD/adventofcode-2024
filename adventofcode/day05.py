@@ -80,4 +80,5 @@ def get_middle_element(lst: list):
     return lst[len(lst) // 2]
 
 
-main()
+if __name__ == "__main__":
+    main()

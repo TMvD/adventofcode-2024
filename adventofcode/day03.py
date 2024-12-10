@@ -48,4 +48,5 @@ def execute_operation(operator: str, operand1: str | int, operand2: str | int) -
             return 0
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -36,4 +36,5 @@ def calculate_similarity_score(list1: list[int], list2: list[int]) -> int:
     return sum([a * list2.count(a) for a in list1])
 
 
-main()
+if __name__ == "__main__":
+    main()

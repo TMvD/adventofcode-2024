@@ -101,4 +101,5 @@ def fetch_harmonic_antinode_coordinates(
     return antinode_coordinates
 
 
-main()
+if __name__ == "__main__":
+    main()
